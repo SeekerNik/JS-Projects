@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 let app = express();
 
-mongoose.connect("mongodb://localhost:27017/TodoDB", {
+mongoose.connect("mongodb+srv://Nikhil:nikhil050618@sandbox-ym3em.mongodb.net/TodoDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
@@ -108,6 +108,6 @@ app.post("/delete", (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT ||3000, () => {
   console.log("The Server is Started at Port 3000");
 });
