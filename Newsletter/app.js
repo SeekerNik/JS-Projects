@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -29,10 +30,10 @@ app.post("/", (req, res) => {
 
   var jsonobj = JSON.stringify(data);
   var options = {
-    url: "https://us18.api.mailchimp.com/3.0/lists/e1be4502c0",
+    url: process.env.LIST_URI,
     method: "POST",
     headers: {
-      Authorization: "Nikhil e3c7c6c811bcf8aacb9ce1c2b9ca15b1-us18",
+      Authorization: process.env.AUTH_KEY,
     },
     body: jsonobj,
   };
